@@ -14,6 +14,16 @@ public class Feeder {
      */
     public void simulateOneDay(int numBirds)
     {
+        // Very rarely a bear might appear and empty the bird feeder. This sumulates that possibility
+        if (Math.random() < 0.05) currentFood = 0;
+        else
+        {
+            int eaten = (int)(Math.random() * 41) + 10;
+            currentFood -= eaten * numBirds;
+
+            //This part makes sure that any negative number will be changed into 0 to reflect the fact that there can't be -1 food
+            if (currentFood < 0) currentFood = 0;
+        }
     }
 
     /**
@@ -21,9 +31,10 @@ public class Feeder {
      * feeder in this simulation, as described in part (b) Preconditions:
      * numBirds > 0, numDays > 0
      */
-    public int simulateManyDays(int numBirds, int numDays) 
+    public void simulateManyDays(int numBirds, int numDays) 
     {
-        return 0;
+        int days = 0;
+        
     }
 
     public int getCurrentFood()
@@ -38,4 +49,8 @@ public class Feeder {
 
     public Feeder() {}
 
+    public String toString()
+    {
+        return "Current Food: " + currentFood;
+    }
 }
