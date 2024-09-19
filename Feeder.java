@@ -26,9 +26,16 @@ public class Feeder {
         return 0;
     }
 
-    public int getcurrentFood()
+    public int getCurrentFood()
     {
         return currentFood;
     }
+
+    public Feeder(int c)
+    {
+        currentFood = c;
+    }
+
+    public Feeder() {}
 
 }
