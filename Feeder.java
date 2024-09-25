@@ -31,10 +31,21 @@ public class Feeder {
      * feeder in this simulation, as described in part (b) Preconditions:
      * numBirds > 0, numDays > 0
      */
-    public void simulateManyDays(int numBirds, int numDays) 
+    public int simulateManyDays(int numBirds, int numDays)
     {
         int days = 0;
-        
+
+        while (days < numDays)
+        {
+            simulateOneDay(numBirds);
+
+            //This is for when there's no more food left
+            if (currentFood == 0) return days;
+            
+            days++;
+        }
+    
+        return days;
     }
 
     public int getCurrentFood()
